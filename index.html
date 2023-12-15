@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parkour Game</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        background-image: url(asset/background/bg.png);
+        background-position: center;
+        background-size: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      h1 {
+        color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      p {
+        color: #ffffff;
+      }
+
+      .start-btn {
+        width: 8.98rem;
+        height: 1.39rem;
+        padding: 15px 30px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        border-radius: 5px;
+        background: url(asset/icon/BUTTON.png) center no-repeat;
+        transition: background-color 0.3s;
+        display: inline-block;
+        background-size: 100% 100%;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      #notification {
+        display: none;
+        background-color: transparent;
+        color: #fff;
+        padding: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      #startGameBtn {
+        width: 8.98rem;
+        height: 1.39rem;
+        padding: 15px 30px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        border-radius: 5px;
+        background: url(asset/icon/BUTTON.png) center no-repeat;
+        transition: background-color 0.3s;
+        display: inline-block;
+        background-size: 100% 100%;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      #tutorialBtn {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        font-size: 24px;
+        color: #ffffff;
+        z-index: 2;
+      }
+
+      /* Gaya layar tutorial */
+      #tutorialOverlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.301);
+        color: #fff;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 1;
+      }
+
+      #tutorialContent {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.69);
+        border-radius: 10px;
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+      /* Animasi muncul dan memudar */
+      @keyframes fadeInOut {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div id="notification">
+      <p>
+        Pencapaianmu tidak akan tersimpan, jadi teruslah berusaha meski
+        menyusahkan
+      </p>
+    </div>
+
+    <h1>Si kotak</h1>
+    <p>Siap Untuk Bermain?</p>
+
+    <div id="tutorialBtn" onclick="showTutorial()">
+      <span>&#9432;</span>
+    </div>
+
+    <div id="tutorialOverlay" onclick="closeTutorial()">
+      <div id="tutorialContent">
+        <h2>How to Play</h2>
+        <p>-Hindari si merah dan kumpulkan koin sampai target tercapai-</p>
+        <p>
+          -Hindari rintangan dan jangan sampai terjatuh, gunakan spasi dan arah
+          untuk kontrol-
+        </p>
+        <p>-Good Luck-</p>
+        <!-- Tambahkan konten tutorial sesuai kebutuhan -->
+        <p>!Klik dimana saja untuk menutup tutorial ini</p>
+      </div>
+    </div>
+
+    <!-- Link to game with easy difficulty -->
+    <a href="#" class="start-btn" onclick="showNotification()">Start</a>
+    <!-- Button to start the game -->
+    <a
+      href="loading.html"
+      id="startGameBtn"
+      style="display: none"
+      onclick="startGame()"
+      >Okay</a
+    >
+
+    <script>
+
+      function showNotification() {
+        document.getElementById("notification").style.display = "block";
+        document.getElementById("startGameBtn").style.display = "block";
+      }
+
+      function startGame() {
+        // Alihkan ke halaman game setelah menekan tombol "Start Game"
+        window.location.href = "easy.html";
+      }
+
+      function showTutorial() {
+        // Tampilkan layar tutorial
+        document.getElementById("tutorialOverlay").style.display = "flex";
+      }
+
+      function closeTutorial() {
+        // Sembunyikan layar tutorial
+        document.getElementById("tutorialOverlay").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
